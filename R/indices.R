@@ -10,8 +10,7 @@
 #' @param precipitation 
 #' @param streamflow 
 #'
-#' @import dplyr
-#' @import tidyr
+#' @import data.table
 #' @importFrom rlang .data
 #' @return data.frame of indices; grouped if provided
 #' @export
@@ -24,15 +23,16 @@ indices <- function(.data,
                     precipitation = NULL, 
                     streamflow = NULL) {
   .data |> 
-   #dplyr::group_by(!!((group))) |> 
-    dplyr::summarize(
-      FD0    = FD0( !!(( daily_T_minimum )) ),
-      CFD    = CFD( !!(( daily_T_minimum )) ),
-      WD     = WD( !!(( precipitation )) ),
-      TR20   = TR20( !!(( daily_T_maximum )) ),
-      RX1day = RX1day( !!(( precipitation )) ),
-      RX5day = RX5day( !!(( precipitation )) ),
-      SU25   = SU25( !!(( daily_T_maximum )) ))
+   .this(, `:=`(
+     FD0    = FD0( !!(( daily_T_minimum )) ),
+     CFD    = CFD( !!(( daily_T_minimum )) ),
+     WD     = WD( !!(( precipitation )) ),
+     TR20   = TR20( !!(( daily_T_maximum )) ),
+     RX1day = RX1day( !!(( precipitation )) ),
+     RX5day = RX5day( !!(( precipitation )) ),
+     SU25   = SU25( !!(( daily_T_maximum )) ))
+   )
+  .data  
 }
 
 

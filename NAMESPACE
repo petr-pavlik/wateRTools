@@ -1,4 +1,6 @@
 useDynLib(wateRTools, .registration=TRUE)
 import(methods, Rcpp)
 importFrom("utils", "download.file")
+export(`%out%`)
+export(".this")
 exportPattern("^[[:alpha:]]+")

@@ -50,6 +50,7 @@ x |> # native pipe operator is just faster than %>%, scoping does not work with 
                       streamflow = streamflow)
 
 x |> # native pipe operator is just faster than %>%, scoping does not work with ., _ only 
+  as.data.table() |> 
   wateRTools::indices(daily_T_minimum = tmin, 
                       daily_T_maximum = tmax, 
                       precipitation = precip, 

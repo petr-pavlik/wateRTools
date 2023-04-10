@@ -21,6 +21,8 @@
 .Rproj.user/
 .Rproj$
 
+# Workflow files
+./workflow.R$
 
 # produced vignettes
 vignettes/*.html

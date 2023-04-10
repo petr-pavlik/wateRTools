@@ -1,5 +1,19 @@
+#' Exclusive set opration
+#' 
+#' @export
+#' 
+#' @return
+#' 
 `%out%` <- Negate(`%in%`)
 
+
+#' alias for dt table use with native pipe
+#' 
+#' @export
+#' 
+#' @return
+#' 
+.this <- `[`
 
 #' Proxy function for downloading MOPEX data from the new.noaa website
 #' @description This function downloads and prepares MOPEX datasets. 
